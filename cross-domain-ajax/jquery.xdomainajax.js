@@ -10,13 +10,14 @@
  * @info http://james.padolsey.com/javascript/cross-domain-requests-with-jquery/
  */
 
-jQuery.cdajax = (function(_ajax){
+jQuery.ajax = (function(_ajax){
     
     var protocol = location.protocol,
         hostname = location.hostname,
         exRegex = RegExp(protocol + '//' + hostname),
         YQL = 'http' + (/^https/.test(protocol)?'s':'') + '://query.yahooapis.com/v1/public/yql?callback=?',
-        query = 'select * from html where url="{URL}" and xpath="*"';
+        //query = 'select * from html where url="{URL}" and xpath="*"';
+        query = 'select * from xml where url="{URL}"';
     
     function isExternal(url) {
         return !exRegex.test(url) && /:\/\//.test(url);
