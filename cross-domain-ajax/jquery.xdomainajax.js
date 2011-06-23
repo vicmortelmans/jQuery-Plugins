@@ -15,7 +15,8 @@ jQuery.ajax = (function(_ajax){
     var protocol = location.protocol,
         hostname = location.hostname,
         exRegex = RegExp(protocol + '//' + hostname),
-        YQL = 'http' + (/^https/.test(protocol)?'s':'') + '://query.yahooapis.com/v1/public/yql?callback=?',
+        //YQL = 'http' + (/^https/.test(protocol)?'s':'') + '://query.yahooapis.com/v1/public/yql?callback=?',
+        YQL = 'http' + (/^https/.test(protocol)?'s':'') + '://query.yahooapis.com/v1/public/yql?',
         //query = 'select * from html where url="{URL}" and xpath="*"';
         query = 'select * from xml where url="{URL}"';
     
@@ -32,7 +33,8 @@ jQuery.ajax = (function(_ajax){
             // Manipulate options so that JSONP-x request is made to YQL
             
             o.url = YQL;
-            o.dataType = 'json';
+            //o.dataType = 'json';
+            o.dataType = 'xml';
             
             o.data = {
                 q: query.replace(
